@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lean Lima | Redator Freelancer &amp; Copywriter</title>
+    <meta name="description" content="Portfólio profissional de Lean Lima — Redator Freelancer e Copywriter especialista em Marketing de Conteúdo, Artigos SEO e Tecnologia. Mais de 8 anos de experiência em TI aplicados à escrita estratégica.">
+    <meta name="keywords" content="redator freelancer, copywriter, marketing de conteúdo, SEO, artigos, landing page, portfólio">
+    <meta name="author" content="Lean Lima">
+    <meta property="og:title" content="Lean Lima | Redator Freelancer & Copywriter">
+    <meta property="og:description" content="Portfólio profissional — escrita estratégica com bagagem real em tecnologia.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts — Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50:  '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                        },
+                        navy: {
+                            700: '#1a2744',
+                            800: '#111c36',
+                            900: '#0b1222',
+                            950: '#060c18',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* ── Animações ───────────────────────────────── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50%      { background-position: 100% 50%; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-8px); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.15); }
+            50%      { box-shadow: 0 0 40px rgba(34, 197, 94, 0.3); }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.7s ease-out both;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out both;
+        }
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Delays escalonados */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* ── Efeito glassmorphism ────────────────────── */
+        .glass {
+            background: rgba(17, 28, 54, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* ── Card hover lift ─────────────────────────── */
+        .card-hover {
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.35s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px -15px rgba(34, 197, 94, 0.18),
+                        0 8px 24px -8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ── Navbar blur ─────────────────────────────── */
+        .nav-blur {
+            background: rgba(6, 12, 24, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* ── Gradient text ───────────────────────────── */
+        .text-gradient {
+            background: linear-gradient(135deg, #22c55e 0%, #4ade80 40%, #86efac 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Hero background mesh ────────────────────── */
+        .hero-mesh {
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 197, 94, 0.12), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(34, 197, 94, 0.06), transparent);
+        }
+
+        /* ── Scrollbar styling ───────────────────────── */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b1222; }
+        ::-webkit-scrollbar-thumb { background: #1a2744; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
+        /* ── Mobile menu ─────────────────────────────── */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .mobile-menu.open {
+            max-height: 320px;
+        }
+
+        /* ── Tag pill ────────────────────────────────── */
+        .tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            line-height: 1;
+        }
+
+        /* ── Pulse glow for CTA ──────────────────────── */
+        .pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        /* ── Intersection observer fade ──────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-navy-950 text-slate-300 font-sans antialiased">
+
+    <!-- ════════════════════════════════════════════════
+         NAVBAR
+         ════════════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed top-0 inset-x-0 z-50 nav-blur border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-2 group" aria-label="Voltar ao topo">
+                <span class="w-9 h-9 rounded-lg bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 font-extrabold text-sm tracking-tight group-hover:bg-brand-500/25 transition-colors">LL</span>
+                <span class="text-white font-bold text-lg tracking-tight">Lean<span class="text-brand-400">Lima</span></span>
+            </a>
+
+            <!-- Links — Desktop -->
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <li><a href="#sobre" class="text-slate-400 hover:text-brand-400 transition-colors">Sobre</a></li>
+                <li><a href="#portfolio" class="text-slate-400 hover:text-brand-400 transition-colors">Portfólio</a></li>
+                <li><a href="#diferenciais" class="text-slate-400 hover:text-brand-400 transition-colors">Diferenciais</a></li>
+                <li><a href="#contato" class="bg-brand-500 hover:bg-brand-600 text-navy-950 font-semibold px-5 py-2 rounded-lg transition-colors">Contato</a></li>
+            </ul>
+
+            <!-- Hamburger — Mobile -->
+            <button id="menu-toggle" class="md:hidden text-slate-400 hover:text-white p-2 rounded-lg transition-colors" aria-label="Abrir menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Links — Mobile -->
+        <div id="mobile-menu" class="mobile-menu md:hidden border-t border-white/5">
+            <ul class="flex flex-col gap-1 px-5 py-4 text-sm font-medium">
+                <li><a href="#sobre" class="block py-2 px-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Sobre</a></li>
+                <li><a href="#portfolio" class="block py-2 px-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Portfólio</a></li>
+                <li><a href="#diferenciais" class="block py-2 px-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Diferenciais</a></li>
+                <li><a href="#contato" class="block py-2 px-3 rounded-lg bg-brand-500/10 text-brand-400 hover:bg-brand-500/20 transition-colors">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- ════════════════════════════════════════════════
+         HERO SECTION
+         ════════════════════════════════════════════════ -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center hero-mesh overflow-hidden pt-16">
+        <!-- Decorative orbs -->
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-brand-500/8 rounded-full blur-3xl animate-float pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-400/5 rounded-full blur-3xl animate-float pointer-events-none" style="animation-delay: 2s;"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-5 text-center">
+            <!-- Badge -->
+            <div class="animate-fade-in-up inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
+                <span class="w-2 h-2 bg-brand-400 rounded-full animate-pulse"></span>
+                Disponível para novos projetos
+            </div>
+
+            <h1 class="animate-fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                Textos que <span class="text-gradient">convertem</span>,<br class="hidden sm:block">
+                escritos com <span class="text-gradient">precisão técnica</span>.
+            </h1>
+
+            <p class="animate-fade-in-up delay-200 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+                Sou <strong class="text-white">Lean Lima</strong> — Redator Freelancer &amp; Copywriter com
+                <strong class="text-brand-400">+8 anos em Tecnologia</strong>. Transformo pesquisa aprofundada e
+                raciocínio lógico em conteúdo estratégico que gera autoridade, tráfego e vendas.
+            </p>
+
+            <div class="animate-fade-in-up delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portfolio" class="group bg-brand-500 hover:bg-brand-600 text-navy-950 font-bold px-8 py-3.5 rounded-xl transition-all pulse-glow flex items-center gap-2">
+                    Ver Portfólio
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+                <a href="#contato" class="border border-slate-700 hover:border-brand-500/40 text-slate-300 hover:text-white font-semibold px-8 py-3.5 rounded-xl transition-all">
+                    Fale Comigo
+                </a>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="animate-fade-in-up delay-500 mt-14 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 uppercase tracking-widest font-medium">
+                <span>99Freelas</span>
+                <span class="w-1 h-1 bg-slate-700 rounded-full"></span>
+                <span>Workana</span>
+                <span class="w-1 h-1 bg-slate-700 rounded-full"></span>
+                <span>Upwork</span>
+                <span class="w-1 h-1 bg-slate-700 rounded-full"></span>
+                <span>LinkedIn</span>
+            </div>
+        </div>
+
+        <!-- Bottom fade -->
+        <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-navy-950 to-transparent pointer-events-none"></div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         SOBRE MIM
+         ════════════════════════════════════════════════ -->
+    <section id="sobre" class="py-24 sm:py-32">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Text -->
+                <div class="reveal">
+                    <span class="text-brand-400 text-sm font-semibold uppercase tracking-widest">Sobre Mim</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-6 leading-tight">
+                        Da Tecnologia à escrita estratégica:<br>
+                        <span class="text-gradient">uma transição consciente.</span>
+                    </h2>
+                    <div class="space-y-4 text-slate-400 leading-relaxed">
+                        <p>
+                            Com mais de <strong class="text-slate-200">8 anos atuando em Tecnologia da Informação e Sistemas</strong>,
+                            construí uma base sólida em raciocínio lógico, resolução de problemas e disciplina com prazos —
+                            habilidades que agora aplico diretamente à produção de conteúdo que performa.
+                        </p>
+                        <p>
+                            Minha transição para a escrita não foi acidental: foi o resultado de perceber que o mercado
+                            precisa de redatores que entendem <strong class="text-slate-200">pesquisa profunda</strong>,
+                            sabem estruturar informação com <strong class="text-slate-200">clareza técnica</strong> e
+                            entregam textos que realmente movem o leitor à ação.
+                        </p>
+                        <p>
+                            Utilizo <strong class="text-brand-400">Inteligência Artificial de forma estratégica</strong>
+                            para acelerar rascunhos e pesquisas — mas cada parágrafo final passa por
+                            <strong class="text-slate-200">revisão, curadoria e refinamento 100% humanos</strong>.
+                            O resultado é conteúdo ágil, original e com a profundidade que algoritmos sozinhos não entregam.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stats cards -->
+                <div class="reveal delay-200 grid grid-cols-2 gap-4">
+                    <div class="glass rounded-2xl p-6 text-center card-hover">
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">8+</div>
+                        <div class="text-sm text-slate-400">Anos em TI</div>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center card-hover">
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">100%</div>
+                        <div class="text-sm text-slate-400">Revisão Humana</div>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center card-hover">
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">SEO</div>
+                        <div class="text-sm text-slate-400">Otimizado</div>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center card-hover">
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">IA</div>
+                        <div class="text-sm text-slate-400">Uso Estratégico</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         PORTFÓLIO
+         ════════════════════════════════════════════════ -->
+    <section id="portfolio" class="py-24 sm:py-32 bg-navy-900/40">
+        <div class="max-w-6xl mx-auto px-5">
+            <!-- Header -->
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-400 text-sm font-semibold uppercase tracking-widest">Portfólio</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-4">
+                    Projetos que demonstram <span class="text-gradient">resultado</span>.
+                </h2>
+                <p class="text-slate-400 max-w-xl mx-auto">
+                    Cada peça foi construída com pesquisa aprofundada, estrutura estratégica e foco total na conversão e engajamento do público-alvo.
+                </p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- ── Projeto 1: Artigo Blog / SEO ──────── -->
+                <article class="reveal delay-100 glass rounded-2xl overflow-hidden card-hover group flex flex-col">
+                    <!-- Category bar -->
+                    <div class="px-6 pt-6 pb-3 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center text-blue-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </span>
+                        <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">Artigo SEO</span>
+                    </div>
+                    <!-- Content -->
+                    <div class="px-6 pb-4 flex-1">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors leading-snug">
+                            Como Começar a Investir em Renda Fixa do Zero em 2026
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Artigo educativo focado na intenção de busca do leitor, com estrutura de leitura escaneável, subtítulos otimizados e linguagem acessível.
+                        </p>
+                    </div>
+                    <!-- Tags + CTA -->
+                    <div class="px-6 pb-6 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Blog</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">SEO</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Finanças</span>
+                        </div>
+                        <a href="deck-renda-fixa.html" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors group/link">
+                            Ver Projeto
+                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ── Projeto 2: Landing Page ───────────── -->
+                <article class="reveal delay-200 glass rounded-2xl overflow-hidden card-hover group flex flex-col">
+                    <div class="px-6 pt-6 pb-3 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-purple-500/15 flex items-center justify-center text-purple-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+                        </span>
+                        <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Landing Page</span>
+                    </div>
+                    <div class="px-6 pb-4 flex-1">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors leading-snug">
+                            Página de Vendas para Capacitação Profissional
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Estrutura completa de alta conversão baseada no modelo AIDA (Atenção, Interesse, Desejo e Ação) com ancoragem de oferta e quebra de objeções.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Copy</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">AIDA</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Conversão</span>
+                        </div>
+                        <a href="landing-page-vendas.html" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors group/link">
+                            Ver Projeto
+                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ── Projeto 3: Carrossel Social ───────── -->
+                <article class="reveal delay-300 glass rounded-2xl overflow-hidden card-hover group flex flex-col">
+                    <div class="px-6 pt-6 pb-3 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-pink-500/15 flex items-center justify-center text-pink-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </span>
+                        <span class="text-xs font-semibold text-pink-400 uppercase tracking-wider">Carrossel</span>
+                    </div>
+                    <div class="px-6 pb-4 flex-1">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors leading-snug">
+                            5 Erros Fatais ao Contratar um Seguro de Vida
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Roteiro slide a slide para carrossel educativo de 8 telas, focado em gerar salvamentos, comentários e autoridade.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Instagram</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">LinkedIn</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Seguros</span>
+                        </div>
+                        <a href="carrossel-seguro-vida.html" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors group/link">
+                            Ver Projeto
+                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ── Projeto 4: Roteiro Vídeo Curto ────── -->
+                <article class="reveal delay-100 glass rounded-2xl overflow-hidden card-hover group flex flex-col">
+                    <div class="px-6 pt-6 pb-3 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-red-500/15 flex items-center justify-center text-red-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </span>
+                        <span class="text-xs font-semibold text-red-400 uppercase tracking-wider">Reels / TikTok</span>
+                    </div>
+                    <div class="px-6 pb-4 flex-1">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors leading-snug">
+                            3 Dicas Rápidas de Organização para Home Office
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Prancha de roteiro dinâmico de 30 segundos com gancho nos primeiros 3 segundos, cortes rápidos e chamada para ação.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Vídeo Curto</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Shorts</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Produtividade</span>
+                        </div>
+                        <a href="roteiro-home-office.html" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors group/link">
+                            Ver Projeto
+                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ── Projeto 5: Roteiro YouTube ────────── -->
+                <article class="reveal delay-200 glass rounded-2xl overflow-hidden card-hover group flex flex-col">
+                    <div class="px-6 pt-6 pb-3 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center text-amber-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        </span>
+                        <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">YouTube</span>
+                    </div>
+                    <div class="px-6 pb-4 flex-1">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors leading-snug">
+                            Os 5 Maiores Avanços da Inteligência Artificial em 2026
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Roteiro longo de 8 minutos com técnicas de retenção de audiência, pontos de virada e marcações visuais de edição.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Roteiro</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">IA</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Retenção</span>
+                        </div>
+                        <a href="roteiro-ia-2026.html" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors group/link">
+                            Ver Projeto
+                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ── Projeto 6: Artigo LinkedIn ────────── -->
+                <article class="reveal delay-300 glass rounded-2xl overflow-hidden card-hover group flex flex-col">
+                    <div class="px-6 pt-6 pb-3 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-sky-500/15 flex items-center justify-center text-sky-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                        </span>
+                        <span class="text-xs font-semibold text-sky-400 uppercase tracking-wider">LinkedIn</span>
+                    </div>
+                    <div class="px-6 pb-4 flex-1">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors leading-snug">
+                            A Conexão Entre Tecnologia, Raciocínio Lógico e a Nova Escrita Digital
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Texto corporativo de posicionamento B2B, relacionando a bagagem técnica ao futuro da produção de conteúdo.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 flex flex-col gap-3">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">B2B</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Autoridade</span>
+                            <span class="tag bg-slate-800/80 text-slate-400 px-2.5 py-1 rounded-full">Tecnologia</span>
+                        </div>
+                        <a href="artigo-linkedin.html" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors group/link">
+                            Ver Projeto
+                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         DIFERENCIAIS
+         ════════════════════════════════════════════════ -->
+    <section id="diferenciais" class="py-24 sm:py-32">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-400 text-sm font-semibold uppercase tracking-widest">Diferenciais</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-4">
+                    Por que trabalhar <span class="text-gradient">comigo</span>?
+                </h2>
+                <p class="text-slate-400 max-w-xl mx-auto">
+                    Três pilares que sustentam cada texto que produzo — e que separam conteúdo genérico de conteúdo que gera resultado.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Pilar 1 -->
+                <div class="reveal delay-100 glass rounded-2xl p-8 text-center card-hover group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/15 border border-brand-500/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-500/25 transition-colors">
+                        <svg class="w-7 h-7 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Bagagem Real em Tecnologia</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        +8 anos em TI trouxeram disciplina com prazos, raciocínio lógico e a capacidade de traduzir conceitos complexos em linguagem acessível — sem superficialidade.
+                    </p>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="reveal delay-200 glass rounded-2xl p-8 text-center card-hover group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/15 border border-brand-500/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-500/25 transition-colors">
+                        <svg class="w-7 h-7 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Pesquisa Profunda de Mercado</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Cada texto nasce de uma investigação real sobre o público, concorrentes e intenção de busca. O conteúdo não é genérico — é construído com dados e contexto.
+                    </p>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="reveal delay-300 glass rounded-2xl p-8 text-center card-hover group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/15 border border-brand-500/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-500/25 transition-colors">
+                        <svg class="w-7 h-7 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Eficiência com Inteligência Artificial</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        IA como ferramenta de aceleração, não como atalho. Rascunhos rápidos, pesquisa ampliada — mas o texto final é sempre curado, refinado e revisado por mim.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         CONTATO / CTA
+         ════════════════════════════════════════════════ -->
+    <section id="contato" class="py-24 sm:py-32 bg-navy-900/40 relative overflow-hidden">
+        <!-- Decorative glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-3xl mx-auto px-5 text-center reveal">
+            <span class="text-brand-400 text-sm font-semibold uppercase tracking-widest">Contato</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-6 leading-tight">
+                Pronto para elevar o nível do<br>
+                <span class="text-gradient">seu conteúdo</span>?
+            </h2>
+            <p class="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+                Se você busca um redator com bagagem técnica, comprometimento real e textos que performam,
+                envie uma proposta ou mensagem através das plataformas abaixo.
+            </p>
+
+            <!-- Platform buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+                <a href="https://www.99freelas.com.br/" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 bg-white/5 hover:bg-brand-500/15 border border-white/10 hover:border-brand-500/30 text-slate-300 hover:text-brand-400 font-semibold px-5 py-3 rounded-xl transition-all text-sm">
+                    <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+                    99Freelas
+                </a>
+                <a href="https://www.workana.com/" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 bg-white/5 hover:bg-brand-500/15 border border-white/10 hover:border-brand-500/30 text-slate-300 hover:text-brand-400 font-semibold px-5 py-3 rounded-xl transition-all text-sm">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                    Workana
+                </a>
+                <a href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 bg-white/5 hover:bg-brand-500/15 border border-white/10 hover:border-brand-500/30 text-slate-300 hover:text-brand-400 font-semibold px-5 py-3 rounded-xl transition-all text-sm">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+                    Upwork
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 bg-white/5 hover:bg-brand-500/15 border border-white/10 hover:border-brand-500/30 text-slate-300 hover:text-brand-400 font-semibold px-5 py-3 rounded-xl transition-all text-sm">
+                    <span class="w-2 h-2 bg-sky-400 rounded-full"></span>
+                    LinkedIn
+                </a>
+            </div>
+
+            <!-- Email CTA -->
+            <a href="mailto:contato@leanlima.com" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-navy-950 font-bold px-8 py-4 rounded-xl transition-all text-base pulse-glow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Enviar Proposta
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         RODAPÉ
+         ════════════════════════════════════════════════ -->
+    <footer class="border-t border-white/5 py-10">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-2 group">
+                    <span class="w-8 h-8 rounded-lg bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 font-extrabold text-xs group-hover:bg-brand-500/25 transition-colors">LL</span>
+                    <span class="text-white font-bold tracking-tight">Lean<span class="text-brand-400">Lima</span></span>
+                </a>
+
+                <!-- Nav links -->
+                <nav class="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
+                    <a href="#sobre" class="hover:text-slate-300 transition-colors">Sobre</a>
+                    <a href="#portfolio" class="hover:text-slate-300 transition-colors">Portfólio</a>
+                    <a href="#diferenciais" class="hover:text-slate-300 transition-colors">Diferenciais</a>
+                    <a href="#contato" class="hover:text-slate-300 transition-colors">Contato</a>
+                </nav>
+
+                <!-- Copyright -->
+                <p class="text-xs text-slate-600">
+                    &copy; 2026 Lean Lima. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ════════════════════════════════════════════════
+         SCRIPTS
+         ════════════════════════════════════════════════ -->
+    <script>
+        // ── Mobile menu toggle ──────────────────────────
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuIcon.setAttribute('d', isOpen
+                ? 'M6 18L18 6M6 6l12 12'
+                : 'M4 6h16M4 12h16M4 18h16'
+            );
+        });
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // ── Navbar background on scroll ─────────────────
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('shadow-lg', window.scrollY > 40);
+            navbar.classList.toggle('border-white/10', window.scrollY > 40);
+        });
+
+        // ── Intersection Observer for reveal animations ─
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ── Active nav link highlight ───────────────────
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('text-brand-400', link.getAttribute('href') === `#${current}`);
+            });
+        });
+    </script>
+
+</body>
+</html>
